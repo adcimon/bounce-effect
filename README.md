@@ -6,4 +6,4 @@ Vertex shader that creates a bounce effect in geometry.
 
 Art used from the [Adventure Sample Game](https://assetstore.unity.com/packages/essentials/tutorial-projects/adventure-sample-game-76216) created by Unity.
 
-Made with Unity 2018.3.2f1.
+Made with Unity 2018.3.2f1 and ShaderGraph 4.10.0-preview.
