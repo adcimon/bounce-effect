@@ -21,7 +21,7 @@ public class ImpactReceiver : MonoBehaviour
         if( isAnimating )
         {
             currentTime += Time.deltaTime;
-            material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime) * bounceAmplitude);
+            material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime));
         }
 
         if( currentTime > totalTime )
@@ -42,7 +42,8 @@ public class ImpactReceiver : MonoBehaviour
         material.SetVector("_ImpactPosition", position);
         material.SetVector("_ImpactDirection", direction);
         material.SetFloat("_DamageRadius", damageRadius);
-        material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime) * bounceAmplitude);
+        material.SetFloat("_BounceAmplitude", bounceAmplitude);
+        material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime));
         material.SetInt("_Bounce", 1);
         currentTime = 0;
         isAnimating = true;
