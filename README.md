@@ -7,7 +7,7 @@ Vertex shader that creates a bounce effect in geometry.
   Art from the <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/adventure-sample-game-76216">Adventure Sample Game</a>.
 </p>
 
-At GDC 2013, Jonathan Lindquist from Epic Games did a <a href="https://www.youtube.com/watch?v=7Fl3so0Z5Tc">talk</a> about Fornite's procedural animations. These animations were based on vertex displacements using vertex shaders. The main goal of these animations was to make hitting and destroying things fun. The technique used to create the bounce effect is simple, elegant and the final result is very engaging. This implementation has been made with Unity 2019.1.0f2 using Lightweight Render Pipeline and ShaderGraph 5.7.2.
+At GDC 2013, Jonathan Lindquist from Epic Games did a <a href="https://www.youtube.com/watch?v=7Fl3so0Z5Tc">talk</a> about Fornite's procedural animations. These animations were based on vertex displacements using vertex shaders. The main goal of these animations was to make hitting and destroying things fun. The technique used to create the bounce effect is simple, elegant and the final result is very engaging. This implementation has been made with Unity 2019.1.0f2 using Lightweight Render Pipeline and Shader Graph 5.7.2.
 
 The first thing needed is the impact position on the object. In this example a ray is casted from the camera to the scene and checks if the gameobject hit has an `ImpactReceiver` component.
 
@@ -52,7 +52,7 @@ currentTime += Time.deltaTime;
 material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime));
 ```
 
-A distance value is calculated from the vertex position in object space to the `ImpactPosition` (transformed from world space to object space). This distance is divided by the `ImpactRadius`, clamped (between 0 and 1) and the result is substracted from 1. Then this result is multiplied by the `ImpactDirection` * `BounceAmplitude` * `AnimationValue` (the offset in the normal direction at the given animation time). The next step is to add this value to the vertex position in object space and lastly the boolean flag `Bounce` is checked to output the final result (or the vertex position not displaced) to the position input of the main node.
+In the shadergraph a distance value is calculated from the vertex position in object space to the `ImpactPosition` (transformed from world space to object space). This distance is divided by the `ImpactRadius`, clamped (between 0 and 1) and the result is substracted from 1. Then this result is multiplied by the `ImpactDirection` * `BounceAmplitude` * `AnimationValue` (the offset in the normal direction at the given animation time). The next step is to add this value to the vertex position in object space and lastly the boolean flag `Bounce` is checked to output the final result (or the vertex position not displaced) to the position input of the main node.
 
 References.
 > <a href="https://www.gdcvault.com/play/1018192/The-Inner-Workings-of-Fortnite">The Inner Workings of Fornite's Shader-Based Procedural Animations</a>
