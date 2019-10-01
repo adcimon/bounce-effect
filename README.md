@@ -54,5 +54,9 @@ material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime));
 
 In the shadergraph a distance value is calculated from the vertex position in object space to the `ImpactPosition` (transformed from world space to object space). This distance is divided by the `ImpactRadius`, clamped (between 0 and 1) and the result is substracted from 1. Then this result is multiplied by the `ImpactDirection` * `BounceAmplitude` * `AnimationValue` (the offset in the normal direction at the given animation time). The next step is to add this value to the vertex position in object space and lastly the boolean flag `Bounce` is checked to output the final result (or the vertex position not displaced) to the position input of the main node.
 
+<p align="center">
+  <img align="center" src="shadergraph.png"><br>
+</p>
+
 References.
 > <a href="https://www.gdcvault.com/play/1018192/The-Inner-Workings-of-Fortnite">The Inner Workings of Fornite's Shader-Based Procedural Animations</a>
