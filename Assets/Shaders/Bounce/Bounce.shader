@@ -20,8 +20,8 @@
 			#pragma fragment Fragment
 			#include "UnityCG.cginc"
 
-			sampler2D _MainTex;
 			float4 _Color;
+			sampler2D _MainTex;
 			float4 _ImpactPosition;
 			float4 _ImpactDirection;
 			float _DamageRadius;
