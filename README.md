@@ -7,7 +7,7 @@ Vertex shader that creates a bounce effect in geometry.
   Art from the <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/adventure-sample-game-76216">Adventure Sample Game</a>.
 </p>
 
-At GDC 2013, Jonathan Lindquist from Epic Games did a <a href="https://www.youtube.com/watch?v=7Fl3so0Z5Tc">talk</a> about Fornite's procedural animations. These animations were based on vertex displacements using vertex shaders. The main goal of these animations was to make hitting and destroying things fun. The technique used to create the bounce effect is simple, elegant and the final result is very engaging. This implementation has been made with Unity 2019.1.0f2 using Lightweight Render Pipeline and Shader Graph 5.7.2.
+At GDC 2013, Jonathan Lindquist from Epic Games did a <a href="https://www.youtube.com/watch?v=7Fl3so0Z5Tc">talk</a> about Fornite's procedural animations. These animations were based on vertex displacements using vertex shaders. The main goal of these animations was to make hitting and destroying things fun. The technique used to create the bounce effect is simple, elegant and the final result is very engaging.
 
 The first thing needed is the impact position on the object. In this example a ray is casted from the camera to the scene and checks if the gameobject hit has an `ImpactReceiver` component.
 
