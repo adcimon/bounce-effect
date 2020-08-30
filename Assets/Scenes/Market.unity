@@ -2375,7 +2375,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   radius: 0.25
-  amplitude: 0.5
+  amplitude: 0.25
   totalTime: 1
 --- !u!64 &1085584274
 MeshCollider:
@@ -2578,7 +2578,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   radius: 0.5
-  amplitude: 0.5
+  amplitude: 0.25
   totalTime: 1
 --- !u!64 &1101822792
 MeshCollider:
@@ -7534,8 +7534,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  radius: 1
-  amplitude: 1
+  radius: 0.25
+  amplitude: 0.5
   totalTime: 1
 --- !u!64 &1139407180
 MeshCollider:
