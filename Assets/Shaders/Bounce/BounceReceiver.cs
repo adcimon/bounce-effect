@@ -32,7 +32,7 @@ public class BounceReceiver : MonoBehaviour
         }
     }
 
-    public void Impact( Vector3 position, Vector3 direction )
+    public void Bounce( Vector3 position, Vector3 direction )
     {
         if( curve == null || !material )
         {

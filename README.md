@@ -56,7 +56,7 @@ material.SetFloat("_Value", curve.Evaluate(currentTime / totalTime));
 In the shadergraph a distance value is calculated from the vertex position in object space to the `TargetPosition` (transformed from world space to object space). This distance is divided by the `Radius`, clamped (between 0 and 1) and the result is substracted from 1. Then this result is multiplied by the `Direction` * `Amplitude` * `Value` (the offset in the normal direction at the given animation time). The next step is to add this value to the vertex position in object space and lastly the boolean flag `Bounce` is checked to output the final result (or the vertex position not displaced) to the position input of the main node.
 
 <p align="center">
-  <img align="center" src="shadergraph.png"><br>
+  <img align="center" src="shadergraph.jpg"><br>
 </p>
 
 References.

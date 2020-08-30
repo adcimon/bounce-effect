@@ -27,7 +27,7 @@ public class BounceSender : MonoBehaviour
             {
                 if( hit.transform.GetComponent<BounceReceiver>() == receiver )
                 {
-                    receiver.Impact(hit.point, ray.direction);
+                    receiver.Bounce(hit.point, ray.direction);
                     receiver = null;
                 }
             }
