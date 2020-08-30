@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class ImpactReceiver : MonoBehaviour
+public class BounceReceiver : MonoBehaviour
 {
     public AnimationCurve curve;
-    public float damageRadius = 1;
-    public float bounceAmplitude = 1;
+    public float radius = 1;
+    public float amplitude = 1;
     public float totalTime = 1;
 
     private Material material;
@@ -13,7 +13,7 @@ public class ImpactReceiver : MonoBehaviour
 
     private void Awake()
     {
-        material = GetComponent<MeshRenderer>().material;
+        material = this.GetComponent<MeshRenderer>().material;
     }
 
     private void Update()
@@ -21,7 +21,7 @@ public class ImpactReceiver : MonoBehaviour
         if( isAnimating )
         {
             currentTime += Time.deltaTime;
-            material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime));
+            material.SetFloat("_Value", curve.Evaluate(currentTime / totalTime));
         }
 
         if( currentTime > totalTime )
@@ -39,11 +39,11 @@ public class ImpactReceiver : MonoBehaviour
         	return;
         }
 
-        material.SetVector("_ImpactPosition", position);
-        material.SetVector("_ImpactDirection", direction);
-        material.SetFloat("_DamageRadius", damageRadius);
-        material.SetFloat("_BounceAmplitude", bounceAmplitude);
-        material.SetFloat("_AnimationValue", curve.Evaluate(currentTime / totalTime));
+        material.SetVector("_TargetPosition", position);
+        material.SetVector("_Direction", direction);
+        material.SetFloat("_Radius", radius);
+        material.SetFloat("_Amplitude", amplitude);
+        material.SetFloat("_Value", curve.Evaluate(currentTime / totalTime));
         material.SetInt("_Bounce", 1);
         currentTime = 0;
         isAnimating = true;

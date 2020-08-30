@@ -1,14 +1,14 @@
-﻿Shader "Custom/Bounce"
+﻿Shader "Bounce"
 {
 	Properties
 	{
 		_Color("Color", Color) = (1, 1, 1, 1)
 		_MainTex("Main Texture", 2D) = "white" { }
-		_ImpactPosition("Impact Position", Vector) = (0, 0, 0, 0)
-		_ImpactDirection("Impact Direction", Vector) = (0, 0, 0, 0)
-		_DamageRadius("Damage Radius", float) = 1
-		_BounceAmplitude("Bounce Amplitude", float) = 1
-		_AnimationValue("Animation Value", float) = 0
+		_TargetPosition("Impact Position", Vector) = (0, 0, 0, 0)
+		_Direction("Impact Direction", Vector) = (0, 0, 0, 0)
+		_Radius("Damage Radius", float) = 1
+		_Amplitude("Bounce Amplitude", float) = 1
+		_Value("Animation Value", float) = 0
 	}
 
 	SubShader
@@ -22,11 +22,11 @@
 
 			float4 _Color;
 			sampler2D _MainTex;
-			float4 _ImpactPosition;
-			float4 _ImpactDirection;
-			float _DamageRadius;
-			float _BounceAmplitude;
-			float _AnimationValue;
+			float4 _TargetPosition;
+			float4 _Direction;
+			float _Radius;
+			float _Amplitude;
+			float _Value;
 
 			struct Attributes
 			{
@@ -43,11 +43,12 @@
 			Varyings Vertex( Attributes input )
 			{
 				float4 worldPosition = mul(unity_ObjectToWorld, input.positionOS);
-				float4 worldPositionOffset = (_ImpactDirection * _AnimationValue * _BounceAmplitude) * (1 - clamp(distance(_ImpactPosition, worldPosition) / _DamageRadius, 0, 1));
+				float4 worldPositionOffset = (_Direction * _Value * _Amplitude) * (1 - clamp(distance(_TargetPosition, worldPosition) / _Radius, 0, 1));
 
 				Varyings output;
 				output.positionCS = UnityWorldToClipPos(worldPosition + worldPositionOffset);
 				output.uv = input.uv;
+
 				return output;
 			}
 
