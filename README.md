@@ -4,7 +4,6 @@ Vertex shader that creates a bounce effect in geometry.
 
 <p align="center">
   <img align="center" src="example.gif" title="My goods are the highest quality"><br>
-  Art from the <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/adventure-sample-game-76216">Adventure Sample Game</a>.
 </p>
 
 At GDC 2013, Jonathan Lindquist from Epic Games did a <a href="https://www.youtube.com/watch?v=7Fl3so0Z5Tc">talk</a> about Fornite's procedural animations. These animations were based on vertex displacements using vertex shaders. The main goal of these animations was to make hitting and destroying things fun. The technique used to create the bounce effect is simple, elegant and the final result is very engaging.
