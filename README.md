@@ -1,4 +1,4 @@
-# Vertex Shader: Bounce Effect
+# Bounce Effect
 
 Vertex shader that creates a bounce effect in geometry.
 
